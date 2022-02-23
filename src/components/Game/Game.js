@@ -1,20 +1,27 @@
+import { useState } from "react";
 import "./game.css";
 
 function Game() {
-  const word = "house";
+  const word = "labas";
   const letters = word.split("");
 
-  function Columns() {
-    return letters.map(() => {
-      return <div className="column"></div>;
-    });
-  }
+  const [currentRow, setCurrentRow] = useState("0");
+  const [currentColumn, setcurrentColumn] = useState("0");
 
   function Rows() {
-    return letters.map(() => {
+    return letters.map((array, i) => {
       return (
-        <div className="row">
-          <Columns />
+        <div key={i} className="row">
+          {letters.map((array, j) => {
+            return (
+              <div key={j} className="column">
+                <h2 key={i + j} className="letter">
+                  {i}
+                  {j}
+                </h2>
+              </div>
+            );
+          })}
         </div>
       );
     });
