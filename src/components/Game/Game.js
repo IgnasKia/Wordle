@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./game.css";
 import KeyboardPress from "../Keyboard/KeyboardPress";
 function Game() {
   const word = "labas";
   const letters = word.split("");
 
-  const [currentRow, setCurrentRow] = useState("");
-  const [currentColumn, setcurrentColumn] = useState("");
+  const [currentRow, setCurrentRow] = useState(0);
+  const [currentColumn, setCurrentColumn] = useState(0);
 
   const [rows, setRows] = useState(
     new Array(word.length).fill(new Array(letters.length).fill(""))
@@ -18,15 +18,30 @@ function Game() {
 
   const updatedRows = copyArray(rows);
 
+  const keyPressed = (key) => {
+    updatedRows[currentRow][currentColumn] = key;
+    setRows(updatedRows);
+    setCurrentColumn(currentColumn + 1);
+
+    if (currentColumn >= word.length - 1) {
+      setCurrentRow(currentRow + 1);
+      setCurrentColumn(0);
+    }
+  };
+
+  useEffect(() => {
+    console.log("hooray");
+  }, [updatedRows]);
+
   function Rows() {
     return letters.map((array, i) => {
       return (
         <div key={i} className="row">
-          {letters.map((array, j) => {
+          {updatedRows.map((letters, j) => {
             return (
               <div key={j} className="column">
                 <h2 key={i + j} className="letter">
-                  {array}
+                  {updatedRows[i][j]}
                 </h2>
               </div>
             );
@@ -35,10 +50,6 @@ function Game() {
       );
     });
   }
-
-  const keyPressed = (key) => {
-    console.log(key);
-  };
 
   return (
     <div className="game-content">
