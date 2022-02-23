@@ -19,19 +19,30 @@ function Game() {
   const updatedRows = copyArray(rows);
 
   const keyPressed = (key) => {
-    updatedRows[currentRow][currentColumn] = key;
-    setRows(updatedRows);
-    setCurrentColumn(currentColumn + 1);
+    if (key === "ENTER") {
+      if (currentColumn === rows[0].length) {
+        setCurrentRow(currentRow + 1);
+        setCurrentColumn(0);
+      }
+      return;
+    }
 
-    if (currentColumn >= word.length - 1) {
-      setCurrentRow(currentRow + 1);
-      setCurrentColumn(0);
+    if (key === "CLEAR") {
+      const prevColumn = currentColumn - 1;
+      if (prevColumn >= 0) {
+        updatedRows[currentRow][prevColumn] = "";
+        setRows(updatedRows);
+        setCurrentColumn(prevColumn);
+      }
+      return;
+    }
+
+    if (currentColumn < rows[0].length) {
+      updatedRows[currentRow][currentColumn] = key;
+      setRows(updatedRows);
+      setCurrentColumn(currentColumn + 1);
     }
   };
-
-  useEffect(() => {
-    console.log("hooray");
-  }, [updatedRows]);
 
   function Rows() {
     return letters.map((array, i) => {
