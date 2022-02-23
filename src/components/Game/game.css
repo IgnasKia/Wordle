@@ -1,0 +1,35 @@
+.game-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: black;
+}
+
+.row {
+  background-color: rgb(78, 78, 78);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  background-color: black;
+  height: 100px;
+  width: 100px;
+  border: 1px solid white;
+  margin: 5px;
+}
