@@ -44,13 +44,19 @@ function Game() {
     }
   };
 
+  const isActive = (i, j) => {
+    if (i === currentRow && j === currentColumn) {
+      return { border: "1px solid green" };
+    }
+  };
+
   function Rows() {
     return letters.map((array, i) => {
       return (
         <div key={i} className="row">
           {updatedRows.map((letters, j) => {
             return (
-              <div key={j} className="column">
+              <div key={j} className="column" style={isActive(i, j)}>
                 <h2 key={i + j} className="letter">
                   {updatedRows[i][j]}
                 </h2>
