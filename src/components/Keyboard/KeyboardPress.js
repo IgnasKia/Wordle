@@ -38,7 +38,7 @@ function KeyboardPress({ keyPressed }) {
       {keys.map((key) => {
         return (
           <button key={key} onClick={() => keyPressed(key)}>
-            {key}
+            {key.toUpperCase()}
           </button>
         );
       })}

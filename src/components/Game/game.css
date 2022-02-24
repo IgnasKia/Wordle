@@ -9,8 +9,9 @@ h1 {
   color: white;
   text-transform: uppercase;
   letter-spacing: 7px;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
+  margin: 0;
 }
 
 .container {
@@ -26,8 +27,8 @@ h1 {
 
 .column {
   background-color: black;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 90px;
   border: 1px solid white;
   margin: 5px;
   display: flex;
