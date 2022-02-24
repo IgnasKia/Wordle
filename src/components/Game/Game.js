@@ -44,10 +44,22 @@ function Game() {
     }
   };
 
-  const isActive = (i, j) => {
-    if (i === currentRow && j === currentColumn) {
-      return { border: "1px solid green" };
+  const isActive = (row, column) => {
+    return row === currentRow && column === currentColumn;
+  };
+
+  const getColumnBackgroundColor = (row, column) => {
+    const letter = rows[row][column];
+    if (row >= currentRow) {
+      return "black";
     }
+    if (letter == letters[column]) {
+      return "green";
+    }
+    if (letters.includes(letter)) {
+      return "darkorange";
+    }
+    return "grey";
   };
 
   function Rows() {
@@ -56,7 +68,16 @@ function Game() {
         <div key={i} className="row">
           {updatedRows.map((letters, j) => {
             return (
-              <div key={j} className="column" style={isActive(i, j)}>
+              <div
+                key={j}
+                className="column"
+                style={{
+                  border: isActive(i, j)
+                    ? "1px solid green"
+                    : "1px solid white",
+                  backgroundColor: getColumnBackgroundColor(i, j),
+                }}
+              >
                 <h2 key={i + j} className="letter">
                   {updatedRows[i][j]}
                 </h2>
