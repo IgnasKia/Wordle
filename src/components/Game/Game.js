@@ -1,6 +1,8 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import "./game.css";
 import KeyboardPress from "../Keyboard/KeyboardPress";
+
 function Game() {
   const word = "labas";
   const letters = word.split("");
@@ -53,13 +55,40 @@ function Game() {
     if (row >= currentRow) {
       return "black";
     }
-    if (letter == letters[column]) {
+    if (letter === letters[column]) {
       return "green";
     }
     if (letters.includes(letter)) {
       return "darkorange";
     }
     return "grey";
+  };
+
+  const refresh = () => {
+    setRows(new Array(word.length).fill(new Array(letters.length).fill("")));
+    setCurrentColumn(0);
+    setCurrentRow(0);
+  };
+
+  useEffect(() => {
+    if (currentRow > 0) {
+      if (checkIfWon()) {
+        alert("You guessed correctly");
+        refresh();
+      } else if (checkIfLost()) {
+        alert(`You lost... Word was : ${word}`);
+        refresh();
+      }
+    }
+  }, [currentRow]);
+
+  const checkIfWon = () => {
+    const row = rows[currentRow - 1];
+    return row.every((letter, i) => letter === letters[i]);
+  };
+
+  const checkIfLost = () => {
+    return currentRow === rows.length;
   };
 
   function Rows() {

@@ -1,3 +1,4 @@
+import React from "react";
 import "./keyboardPress.css";
 
 function KeyboardPress({ keyPressed }) {

@@ -41,3 +41,20 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
 }
+
+.modalContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.modalTitle {
+  color: green;
+  font-size: 100px;
+}
+
+.modalCloseButton {
+  background-color: black;
+}
