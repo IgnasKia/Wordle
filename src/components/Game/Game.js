@@ -424,7 +424,6 @@ const fiveLetterWords = [
   "quite",
   "quota",
   "rabid",
-  "radix",
   "raphe",
   "rapid",
   "ratio",
