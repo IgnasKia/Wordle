@@ -140,15 +140,21 @@ function Game() {
       <div className="title">
         <h1>Vordlis</h1>
       </div>
-      <div className="container">
-        <Rows />
+
+      <div className="board">
+        <div className="container">
+          <Rows />
+        </div>
       </div>
-      <KeyboardPress
-        keyPressed={keyPressed}
-        greenKey={greenKey}
-        yellowKey={yellowKey}
-        greyKey={greyKey}
-      />
+
+      <div className="keyboard">
+        <KeyboardPress
+          keyPressed={keyPressed}
+          greenKey={greenKey}
+          yellowKey={yellowKey}
+          greyKey={greyKey}
+        />
+      </div>
     </div>
   );
 }

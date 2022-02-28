@@ -1,17 +1,11 @@
 button {
   border: 1px solid;
-  margin: 5px;
+  margin: 2px;
   font-size: 20px;
-  background-color: darkblue;
-  color: white;
+  color: black;
   padding: 15px;
   flex: 1 0 7%;
 }
-
-button:hover {
-  background-color: black;
-}
-
 .row-buttons {
   margin-top: 15px;
   display: flex;

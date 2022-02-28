@@ -14,26 +14,35 @@ h1 {
   margin: 0;
 }
 
-.container {
-  background-color: black;
-}
-
 .row {
-  background-color: rgb(78, 78, 78);
-  width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.column {
-  background-color: black;
-  height: 80px;
-  width: 90px;
-  border: 1px solid white;
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media only screen and (max-width: 600px) {
+  .column {
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    border: 1px solid white;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .column {
+    background-color: black;
+    height: 80px;
+    width: 80px;
+    border: 1px solid white;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .letter {
@@ -43,19 +52,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.modalContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.modalTitle {
-  color: green;
-  font-size: 100px;
-}
-
-.modalCloseButton {
-  background-color: black;
+.keyboard {
+  padding: 10px;
 }
