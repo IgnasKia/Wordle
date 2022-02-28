@@ -8,6 +8,4 @@ And decided to build same thing, but in my game word changes everytime when lose
 
 ## Compatibility
 
-Now it is playable only on desktop.
-
-Happy playing!
+Smartphone and desktop
